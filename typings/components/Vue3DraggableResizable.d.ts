@@ -1,6 +1,6 @@
-import { Ref } from 'vue';
-import './index.css';
-import { ResizingHandle, ContainerProvider } from './types';
+import { Ref } from "vue";
+import "./index.css";
+import { ResizingHandle, ContainerProvider } from "./types";
 export declare const ALL_HANDLES: ResizingHandle[];
 declare const VueDraggableResizable: import("vue").DefineComponent<{
     initW: {
@@ -102,7 +102,7 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     };
 }, {
     handlesFiltered: import("vue").ComputedRef<ResizingHandle[]>;
-    resizeHandleDown: (e: MouseEvent, handleType: ResizingHandle) => void;
+    resizeHandleDown: (e: MouseEvent | TouchEvent, handleType: ResizingHandle) => void;
     setWidth(val: number): number;
     setHeight(val: number): number;
     setTop(val: number): number;
@@ -139,10 +139,6 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     setResizingMaxWidth: (value: number) => number;
     setResizingMinWidth: (value: number) => number;
     setResizingMinHeight: (value: number) => number;
-    $setWidth: (val: number) => number;
-    $setHeight: (val: number) => number;
-    $setTop: (val: number) => number;
-    $setLeft: (val: number) => number;
     containerRef: Ref<HTMLElement>;
     containerProvider: ContainerProvider;
 }, unknown, {
