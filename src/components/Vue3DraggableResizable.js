@@ -156,7 +156,7 @@ var VueDraggableResizable = vue_1.defineComponent({
     setup: function (props, _a) {
         var emit = _a.emit;
         var containerProps = hooks_1.initState(props, emit);
-        var provideIdentity = vue_1.inject("identity");
+        var provideIdentity = vue_1.inject("identity", null);
         var containerProvider = null;
         if (provideIdentity === utils_1.IDENTITY) {
             containerProvider = {

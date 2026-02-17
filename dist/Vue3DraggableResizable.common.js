@@ -4647,7 +4647,7 @@ var VueDraggableResizable = Object(external_commonjs_vue_commonjs2_vue_root_Vue_
   setup: function setup(props, _ref) {
     var emit = _ref.emit;
     var containerProps = initState(props, emit);
-    var provideIdentity = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["inject"])("identity");
+    var provideIdentity = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["inject"])("identity", null);
     var containerProvider = null;
 
     if (provideIdentity === IDENTITY) {

@@ -5,13 +5,13 @@ declare const _default: ({
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -30,13 +30,13 @@ declare const _default: ({
             classNameHandle: string;
             lockAspectRatio: boolean;
         }> & Pick<Readonly<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -54,7 +54,7 @@ declare const _default: ({
             classNameActive: string;
             classNameHandle: string;
             lockAspectRatio: boolean;
-        } & {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "style" | "key" | "ref" | "class" | "onVnodeBeforeMount" | "onVnodeMounted" | "onVnodeBeforeUpdate" | "onVnodeUpdated" | "onVnodeBeforeUnmount" | "onVnodeUnmounted">;
+        } & {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "ref" | "class" | "style" | "key" | "onVnodeBeforeMount" | "onVnodeMounted" | "onVnodeBeforeUpdate" | "onVnodeUpdated" | "onVnodeBeforeUnmount" | "onVnodeUnmounted">;
         $attrs: Record<string, unknown>;
         $refs: Record<string, unknown>;
         $slots: Readonly<{
@@ -65,13 +65,13 @@ declare const _default: ({
         $emit: (event: string, ...args: any[]) => void;
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -138,13 +138,13 @@ declare const _default: ({
                 [propName: string]: string | boolean;
             };
         }, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -165,15 +165,15 @@ declare const _default: ({
         }>;
         $forceUpdate: import("vue").ReactiveEffect<any>;
         $nextTick: typeof import("vue").nextTick;
-        $watch(source: TimerHandler, cb: Function, options?: import("vue").WatchOptions<boolean>): import("vue").WatchStopHandle;
+        $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean>): import("vue").WatchStopHandle;
     } & Readonly<{
-        active: boolean;
         x: number;
         y: number;
         w: number;
         h: number;
         draggable: boolean;
         resizable: boolean;
+        active: boolean;
         initW: number;
         initH: number;
         disabledX: boolean;
@@ -244,13 +244,13 @@ declare const _default: ({
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;
@@ -317,13 +317,13 @@ declare const _default: ({
         [propName: string]: string | boolean;
     };
 }, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;
@@ -348,13 +348,13 @@ declare const _default: ({
         $: import("vue").ComponentInternalInstance;
         $data: {};
         $props: Partial<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -373,13 +373,13 @@ declare const _default: ({
             classNameHandle: string;
             lockAspectRatio: boolean;
         }> & Pick<Readonly<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -397,7 +397,7 @@ declare const _default: ({
             classNameActive: string;
             classNameHandle: string;
             lockAspectRatio: boolean;
-        } & {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "style" | "key" | "ref" | "class" | "onVnodeBeforeMount" | "onVnodeMounted" | "onVnodeBeforeUpdate" | "onVnodeUpdated" | "onVnodeBeforeUnmount" | "onVnodeUnmounted">;
+        } & {}> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "ref" | "class" | "style" | "key" | "onVnodeBeforeMount" | "onVnodeMounted" | "onVnodeBeforeUpdate" | "onVnodeUpdated" | "onVnodeBeforeUnmount" | "onVnodeUnmounted">;
         $attrs: Record<string, unknown>;
         $refs: Record<string, unknown>;
         $slots: Readonly<{
@@ -408,13 +408,13 @@ declare const _default: ({
         $emit: (event: string, ...args: any[]) => void;
         $el: any;
         $options: import("vue").ComponentOptionsBase<Readonly<{
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -481,13 +481,13 @@ declare const _default: ({
                 [propName: string]: string | boolean;
             };
         }, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
-            active: boolean;
             x: number;
             y: number;
             w: number;
             h: number;
             draggable: boolean;
             resizable: boolean;
+            active: boolean;
             initW: number;
             initH: number;
             disabledX: boolean;
@@ -508,15 +508,15 @@ declare const _default: ({
         }>;
         $forceUpdate: import("vue").ReactiveEffect<any>;
         $nextTick: typeof import("vue").nextTick;
-        $watch(source: TimerHandler, cb: Function, options?: import("vue").WatchOptions<boolean>): import("vue").WatchStopHandle;
+        $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean>): import("vue").WatchStopHandle;
     } & Readonly<{
-        active: boolean;
         x: number;
         y: number;
         w: number;
         h: number;
         draggable: boolean;
         resizable: boolean;
+        active: boolean;
         initW: number;
         initH: number;
         disabledX: boolean;
@@ -587,13 +587,13 @@ declare const _default: ({
     __isTeleport?: never;
     __isSuspense?: never;
 } & import("vue").ComponentOptionsBase<Readonly<{
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;
@@ -660,13 +660,13 @@ declare const _default: ({
         [propName: string]: string | boolean;
     };
 }, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;

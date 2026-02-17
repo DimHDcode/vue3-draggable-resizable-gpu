@@ -8,7 +8,7 @@
     "build": "npm run build:lib && npm run build:dts",
     "lint": "vue-cli-service lint",
     "build:lib": "vue-cli-service build --target lib --name Vue3DraggableResizable src/index.ts",
-    "build:dts": "tsc src/index.ts --declaration --declarationDir typings"
+    "build:dts": "tsc src/index.ts --declaration --declarationDir typings --skipLibCheck --lib esnext,dom"
   },
   "dependencies": {},
   "devDependencies": {

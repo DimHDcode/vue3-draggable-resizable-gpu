@@ -149,13 +149,13 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
         [propName: string]: string | boolean;
     };
 }, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;
@@ -174,13 +174,13 @@ declare const VueDraggableResizable: import("vue").DefineComponent<{
     classNameHandle: string;
     lockAspectRatio: boolean;
 } & {}>, {
-    active: boolean;
     x: number;
     y: number;
     w: number;
     h: number;
     draggable: boolean;
     resizable: boolean;
+    active: boolean;
     initW: number;
     initH: number;
     disabledX: boolean;
