@@ -183,10 +183,6 @@ var VueDraggableResizable = vue_1.defineComponent({
             return {
                 width: this.width + "px",
                 height: this.height + "px",
-                // Добавляем 'px', чтобы TypeScript перестал ныть
-                top: "0px",
-                left: "0px",
-                // Тут всё ок, так как это шаблонная строка и на выходе уже string
                 transform: "translate3d(" + this.left + "px, " + this.top + "px, 0)"
             };
         },

@@ -4687,10 +4687,6 @@ var VueDraggableResizable = Object(external_commonjs_vue_commonjs2_vue_root_Vue_
       return {
         width: this.width + "px",
         height: this.height + "px",
-        // Добавляем 'px', чтобы TypeScript перестал ныть
-        top: "0px",
-        left: "0px",
-        // Тут всё ок, так как это шаблонная строка и на выходе уже string
         transform: "translate3d(".concat(this.left, "px, ").concat(this.top, "px, 0)")
       };
     },
