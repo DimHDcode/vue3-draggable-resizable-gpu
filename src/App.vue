@@ -78,7 +78,7 @@ export default defineComponent({
 </script>
 <style lang="less" scoped>
 .parent {
-  width: 300px;
+  width: 100%;
   height: 300px;
   // position: absolute;
   // top: 100px;
