@@ -153,6 +153,7 @@ var VueDraggableResizable = vue_1.defineComponent({
     name: "Vue3DraggableResizable",
     props: VdrProps,
     emits: emits,
+    // Не забудь добавить onUnmounted и watch в импорт из 'vue' в самом верху файла! [cite: 2026-01-26]
     setup: function (props, _a) {
         var emit = _a.emit;
         var containerProps = hooks_1.initState(props, emit);
@@ -171,6 +172,71 @@ var VueDraggableResizable = vue_1.defineComponent({
         }
         var containerRef = vue_1.ref();
         var parentSize = hooks_1.initParent(containerRef);
+        // --- ВОТ ТУТ МАГИЯ НА TYPESCRIPT ---
+        if (props.parent) {
+            // Функция, которая будет пинать либу при каждом ресайзе [cite: 2026-02-15]
+            var updateParentDimensions_1 = function () {
+                if (containerRef.value && containerRef.value.parentElement) {
+                    var _a = utils_1.getElSize(containerRef.value.parentElement), width = _a.width, height = _a.height;
+                    // Отдаем батины размеры в рефы
+                    if (parentSize.parentWidth)
+                        parentSize.parentWidth.value = width;
+                    if (parentSize.parentHeight)
+                        parentSize.parentHeight.value = height;
+                    // --- Уважение к ширине ---
+                    if (containerProps.width && containerProps.left) {
+                        var currentLeft = containerProps.left.value;
+                        // 1. Не даем элементу уехать за правый край дальше, чем его минимальная ширина
+                        var maxLeft = width - props.minW;
+                        if (currentLeft > maxLeft) {
+                            currentLeft = maxLeft < 0 ? 0 : maxLeft; // Если батя стал у́же минимальной ширины — прибиваем к левому краю
+                            containerProps.left.value = currentLeft;
+                            emit("update:x", currentLeft); // Отправляем Vue новые координаты
+                        }
+                        // 2. Режем ширину элемента, если он толще, чем оставшееся место
+                        var currentWidth = containerProps.width.value;
+                        var maxWidth = width - currentLeft; // Доступное место от левого края до конца бати
+                        if (currentWidth > maxWidth) {
+                            // Ужимаем, но не меньше props.minW, чтобы не превратить блок в невидимую херню
+                            containerProps.width.value = Math.max(maxWidth, props.minW);
+                            emit("update:w", containerProps.width.value); // Отправляем Vue новую ширину
+                        }
+                    }
+                    // --- Уважение к высоте (чтобы и по вертикали всё было чётко) ---
+                    if (containerProps.height && containerProps.top) {
+                        var currentTop = containerProps.top.value;
+                        var maxTop = height - props.minH;
+                        if (currentTop > maxTop) {
+                            currentTop = maxTop < 0 ? 0 : maxTop;
+                            containerProps.top.value = currentTop;
+                            emit("update:y", currentTop);
+                        }
+                        var currentHeight = containerProps.height.value;
+                        var maxHeight = height - currentTop;
+                        if (currentHeight > maxHeight) {
+                            containerProps.height.value = Math.max(maxHeight, props.minH);
+                            emit("update:h", containerProps.height.value);
+                        }
+                    }
+                }
+            };
+            // Создаем "наблюдателя" за размерами [cite: 2026-02-15]
+            var resizeObserver_1 = new window.ResizeObserver(function () {
+                updateParentDimensions_1();
+            });
+            // Как только элемент появился в DOM - начинаем следить за его "батей" [cite: 2026-02-15]
+            vue_1.watch(containerRef, function (el) {
+                if (el && el.parentElement) {
+                    resizeObserver_1.observe(el.parentElement);
+                    updateParentDimensions_1(); // Замеряем сразу при старте [cite: 2026-02-15]
+                }
+            });
+            // Убиваем наблюдателя, когда компонент удаляется, чтобы не грузить комп [cite: 2026-01-27]
+            vue_1.onUnmounted(function () {
+                resizeObserver_1.disconnect();
+            });
+        }
+        // --- КОНЕЦ МАГИИ ---
         var limitProps = hooks_1.initLimitSizeAndMethods(props, parentSize, containerProps);
         hooks_1.initDraggableContainer(containerRef, containerProps, limitProps, vue_1.toRef(props, "draggable"), emit, containerProvider, parentSize);
         var resizeHandle = hooks_1.initResizeHandle(containerProps, limitProps, parentSize, props, emit);
